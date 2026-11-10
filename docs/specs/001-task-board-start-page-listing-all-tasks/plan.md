@@ -24,6 +24,7 @@ tasks:
     covers: [AC-001.3, AC-001.4, AC-001.6]
     parallel_safe: true
     depends_on: [t1, t2]
+    done: true
   - id: t4
     title: Add TaskBoard client component with list and create form
     files: [app/_components/task-board.tsx, app/_components/task-list.tsx, app/globals.css]
@@ -37,6 +38,7 @@ tasks:
     covers: [AC-001.1, AC-001.2, AC-001.5]
     parallel_safe: true
     depends_on: [t2, t4]
+    done: true
 ---
 
 # Plan — 001 Task board start page listing all tasks with a create form
