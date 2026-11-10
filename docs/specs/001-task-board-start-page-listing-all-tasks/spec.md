@@ -1,7 +1,7 @@
 ---
 spec_id: 001-task-board-start-page-listing-all-tasks
 title: Task board start page listing all tasks with a create form
-status: building
+status: done
 priority: P1
 shape: web-nextjs
 parent: ika100-demo/taskboard9-gitops:001-persistent-tasks-in-postgres-with-a-web
@@ -161,3 +161,4 @@ error) and a @smoke @writes test creating a smoke-<uuid> task (dev only).
 - 2026-11-10 created from the system plan, with its criteria (spec 147)
 - 2026-11-10 approved
 - 2026-11-10 building
+- 2026-11-10 done
