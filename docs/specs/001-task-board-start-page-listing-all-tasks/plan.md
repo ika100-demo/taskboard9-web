@@ -10,6 +10,7 @@ tasks:
     covers: [AC-001.1, AC-001.4]
     parallel_safe: true
     depends_on: []
+    done: true
   - id: t2
     title: Add server-side taskboard9-api client and document API_URL
     files: [app/_lib/tasks-api.ts, docs/env-vars.md]
