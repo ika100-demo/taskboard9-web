@@ -8,6 +8,7 @@ Configuration is read exclusively from environment variables. Defaults below are
 |---|---|---|
 | `PORT` | `3000` | HTTP port the server listens on. |
 | `NODE_ENV` | `production` (in the image) | Node environment. |
+| `API_URL` | `http://localhost:8080` | Base URL of taskboard9-api, no trailing slash. Server-side only (never `NEXT_PUBLIC_*`); read on every request. Deployed value `http://taskboard9-api` (gitops repo). |
 
 ## Observability
 
