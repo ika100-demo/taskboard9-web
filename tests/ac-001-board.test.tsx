@@ -82,12 +82,16 @@ describe("task board", () => {
   });
 
   it("AC-001.3 shows the task the server returned, not the typed values", async () => {
-    fetchMock.mockResolvedValue(json({ id: "9", title: "Buy milk", due_date: null }, 201));
+    fetchMock.mockResolvedValue(json({ id: "42", title: "Server Normalized Title", due_date: "2027-01-02" }, 201));
     await renderBoard([]);
-    fill("  Buy milk  ");
+    fill("  buy milk  ");
     submit();
     await waitFor(() => expect(titles()).toHaveLength(1));
-    expect(JSON.parse(fetchMock.mock.calls[0][1].body).title).toBe("Buy milk");
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body).title).toBe("buy milk");
+    expect(titles()[0]).toHaveTextContent("Server Normalized Title");
+    expect(titles()[0]).toHaveTextContent("2027-01-02");
+    expect(titles()[0]).not.toHaveTextContent("buy milk");
+    expect(titles()[0]).not.toHaveTextContent("No due date");
   });
 
   it.each([

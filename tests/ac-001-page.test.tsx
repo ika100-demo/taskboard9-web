@@ -71,7 +71,9 @@ describe("start page", () => {
   it("AC-001.5 asks the API with a timeout signal and no caching", async () => {
     const fetchMock = vi.fn().mockResolvedValue(json([]));
     vi.stubGlobal("fetch", fetchMock);
+    const timeoutSpy = vi.spyOn(AbortSignal, "timeout");
     await openPage();
+    expect(timeoutSpy).toHaveBeenCalledWith(8000);
     const init = fetchMock.mock.calls[0][1] as RequestInit;
     expect(init.signal).toBeInstanceOf(AbortSignal);
     expect(init.cache).toBe("no-store");

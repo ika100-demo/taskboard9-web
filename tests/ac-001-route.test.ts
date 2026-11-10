@@ -29,7 +29,9 @@ describe("POST /api/tasks", () => {
   it("AC-001.3 forwards the trimmed title and due date to the API and returns the created task", async () => {
     const created = { id: "7", title: "Buy milk", due_date: "2026-12-01" };
     fetchMock.mockResolvedValue(json(created, 201));
+    const timeoutSpy = vi.spyOn(AbortSignal, "timeout");
     const res = await post({ title: "  Buy milk ", due_date: "2026-12-01" });
+    expect(timeoutSpy).toHaveBeenCalledWith(8000);
     expect(res.status).toBe(201);
     expect(await res.json()).toEqual(created);
     const [url, init] = fetchMock.mock.calls[0];
