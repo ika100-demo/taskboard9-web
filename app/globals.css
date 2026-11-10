@@ -478,3 +478,65 @@ main {
     padding-block: var(--s-2);
   }
 }
+
+/* ---------- task board ---------- */
+
+.task-list {
+  display: grid;
+  gap: var(--s-2);
+  margin: var(--s-4) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.task-due {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.task-form {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 28rem;
+}
+
+.task-form > div {
+  display: grid;
+  gap: var(--s-1);
+}
+
+.task-form input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.field-error,
+.alert {
+  color: #b91c1c;
+  font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .field-error,
+  .alert {
+    color: #fca5a5;
+  }
+}
